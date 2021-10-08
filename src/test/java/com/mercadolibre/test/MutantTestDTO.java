@@ -51,16 +51,16 @@ public class MutantTestDTO {
 		   {"ACAAAA",
             "TAAAAG", 
             "GTAAAA", 
-            "CCCCCC", 
+            "CCCACC", 
             "GGGAAA", 
             "CCCCGA"};
 	
 	String [] dnaMutante =
-		{"ACACGA",
-	     "TAGAGG", 
-	     "GTAAGA", 
-	     "CCCAGC", 
-	     "CCCCAA", 
-	     "CCCGGA"	
+		{"ATGCGA",
+		 "CAGTGC", 
+		 "TTATGT", 
+		 "AGAAGG", 
+		 "CCCCTA", 
+		 "TCACTG"	
 		};
 }

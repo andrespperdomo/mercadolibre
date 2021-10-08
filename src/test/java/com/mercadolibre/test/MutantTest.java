@@ -89,7 +89,7 @@ public class MutantTest {
 
 			}
 		
-		assertFalse(oblicuo);
+		assertFalse(!oblicuo);
 	}
 	
 	@Test

@@ -30,12 +30,21 @@ public class MutantService {
 	 */
 	List<String> characteres =Arrays.asList("A","T","C","G");
 	
-	public  int countOblicuo=1;
-	public  int contHorizontal=1;
+	public  int countOblicuo=0;
+	public  int contHorizontal=0;
 	public  int secuenciasOblicua=0;
 	public  int secuenciashorizontal=0;
-	public  int countVert=1;
+	public  int countVert=0;
     public  int secuenciaVert=0;
+    
+    private void inicializarContadores() {
+    	countOblicuo=1;
+    	contHorizontal=1;
+    	secuenciasOblicua=0;
+    	secuenciashorizontal=0;
+    	countVert=1;
+        secuenciaVert=0;
+    }
 	
     /**
      * isMutant
@@ -44,6 +53,7 @@ public class MutantService {
      */
 	public boolean isMutant(String [] dna) {
 		logger.info(Thread.currentThread().getStackTrace()[1].getMethodName());
+		inicializarContadores();
 		boolean validate = false;
 	    
 		if (validateCharactersOk(dna)) {
@@ -56,7 +66,8 @@ public class MutantService {
 				for (int j = 0; j < dna.length; j++) {
 
 					if (secuenciashorizontal == 2 || secuenciaVert == 2
-							|| (secuenciashorizontal == 1 && secuenciaVert == 1)) {
+						|| (secuenciashorizontal == 1 && secuenciaVert == 1)
+						|| (secuenciasOblicua==1 && (secuenciashorizontal==1 || secuenciaVert==1))) {
 						validate = true;
 						break;
 					}
@@ -177,11 +188,6 @@ public class MutantService {
 			if(secuenciashorizontal==2) {
 				return;
 			}
-		
-
-			
-			
-
 		}
 	}
 	/**
@@ -209,12 +215,15 @@ public class MutantService {
 		}
 
 	}
-	
+	/**
+	 * guardarMutante
+	 * @param adn
+	 * @param validate
+	 */
 	public void guardarMutante(String adn,boolean validate) {
 		Mutant m=new Mutant();
 		m.setFirstName(adn);
 		m.setMutant(validate);
 		mutantRepository.save(m);
 	}
-	
 }
