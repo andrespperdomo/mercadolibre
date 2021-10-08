@@ -102,12 +102,11 @@ public class MutantService {
 		   }
 
 			 countHuman++;
-
+		
+	}
 		r.setCountHumanDNA(countHuman);
 		r.setCountMutantDNA(contMutant);
 		r.setRatio(Double.valueOf(contMutant)/Double.valueOf(countHuman));
-		
-	}
 	   return r;
 	}
 	/**
